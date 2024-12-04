@@ -3,6 +3,7 @@ package com.frc90.springsecurity.controllers;
 import com.frc90.springsecurity.controllers.models.AuthResponse;
 import com.frc90.springsecurity.controllers.models.AuthenticationRequest;
 import com.frc90.springsecurity.controllers.models.RegisterRequest;
+import com.frc90.springsecurity.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
+
+    private final AuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request){
